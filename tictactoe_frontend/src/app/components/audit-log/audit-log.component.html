@@ -1,0 +1,34 @@
+<div class="audit surface">
+  <h3>Audit Log</h3>
+  <p class="subtitle">Recent actions (most recent first)</p>
+
+  <div class="entries" *ngIf="entries().length; else emptyTpl">
+    <div class="entry" *ngFor="let e of entries(); let idx = index">
+      <div class="entry-head">
+        <span class="badge">{{ e.action }}</span>
+        <span class="timestamp">{{ e.timestamp }}</span>
+        <span class="user">User: {{ e.userId }}</span>
+      </div>
+      <div class="details" *ngIf="e.details">Details: {{ e.details }}</div>
+      <div class="error" *ngIf="e.errorMessage">Error: {{ e.errorMessage }}</div>
+      <div class="state">
+        <div class="state-col">
+          <strong>Before</strong>
+          <div class="state-board" *ngIf="e.beforeState as b">
+            <span *ngFor="let c of b.board">{{ c || '-' }}</span>
+          </div>
+        </div>
+        <div class="state-col">
+          <strong>After</strong>
+          <div class="state-board" *ngIf="e.afterState as a">
+            <span *ngFor="let c of a.board">{{ c || '-' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyTpl>
+    <div class="empty">No audit entries yet.</div>
+  </ng-template>
+</div>

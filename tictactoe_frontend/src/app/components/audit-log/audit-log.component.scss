@@ -1,0 +1,82 @@
+.audit {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+h3 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.entries {
+  display: grid;
+  gap: 10px;
+}
+
+.entry {
+  padding: 12px;
+  border: 1px solid rgba(17,24,39,0.08);
+  border-radius: 10px;
+  background: white;
+}
+
+.entry-head {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.timestamp {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  color: #374151;
+}
+
+.user {
+  margin-left: auto;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.details, .error {
+  font-size: 13px;
+  margin: 4px 0;
+}
+.error {
+  color: var(--color-error);
+}
+
+.state {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.state-board {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(10px, 1fr));
+  gap: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  color: #111827;
+}
+
+.state-col strong {
+  font-size: 12px;
+  color: #374151;
+}
+
+.empty {
+  color: #6b7280;
+  font-size: 13px;
+}

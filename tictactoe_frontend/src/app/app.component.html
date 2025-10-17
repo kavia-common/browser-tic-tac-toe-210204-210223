@@ -1,3 +1,62 @@
-<div class="container">
-  <h1>{{ title }}</h1>
+<div class="container-center">
+  <div class="surface card app-shell" role="main" aria-label="Tic-Tac-Toe game">
+    <header class="header">
+      <div class="title-group">
+        <h1 class="app-title">{{ title }}</h1>
+        <span class="badge">Ocean Professional</span>
+      </div>
+
+      <div class="controls">
+        <button class="btn btn-secondary" type="button" (click)="toggleAudit()">
+          {{ showAudit() ? 'Hide Audit Log' : 'Show Audit Log' }}
+        </button>
+        <button class="btn btn-primary" type="button" (click)="newGame()">
+          New Game
+        </button>
+      </div>
+    </header>
+
+    <section class="status section">
+      <div
+        class="status-banner"
+        *ngIf="!winner() && !draw(); else endState"
+        aria-live="polite"
+      >
+        Current Player: <strong>{{ currentPlayer() }}</strong>
+      </div>
+
+      <ng-template #endState>
+        <div
+          class="status-banner"
+          [class.success]="winner()"
+          [class.error]="draw()"
+          aria-live="polite"
+        >
+          <ng-container *ngIf="winner(); else drawTpl">
+            Winner: <strong>{{ winner() }}</strong>
+          </ng-container>
+          <ng-template #drawTpl>It's a draw.</ng-template>
+        </div>
+      </ng-template>
+    </section>
+
+    <section class="board-wrapper section">
+      <app-board
+        [board]="board()"
+        [winningLine]="winningLine()"
+        [gameOver]="!!winner() || !!draw()"
+        (cellSelected)="onCellSelected($event)"
+      ></app-board>
+    </section>
+
+    <section class="audit-wrapper section" *ngIf="showAudit()">
+      <app-audit-log></app-audit-log>
+    </section>
+
+    <footer class="footer section">
+      <small>
+        Demo-only frontend audit scaffold. No external services or persistence.
+      </small>
+    </footer>
+  </div>
 </div>

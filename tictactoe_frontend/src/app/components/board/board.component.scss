@@ -1,0 +1,58 @@
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 96px);
+  grid-template-rows: repeat(3, 96px);
+  gap: 8px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 640px) {
+  .board-grid {
+    grid-template-columns: repeat(3, 112px);
+    grid-template-rows: repeat(3, 112px);
+  }
+}
+
+.cell {
+  background: white;
+  border: 1px solid rgba(17,24,39,0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.cell:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(37,99,235,0.35);
+}
+
+.cell:disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.cell-x .cell-value {
+  color: var(--color-primary);
+  text-shadow: 0 1px 0 rgba(37, 99, 235, 0.15);
+}
+
+.cell-o .cell-value {
+  color: var(--color-secondary);
+  text-shadow: 0 1px 0 rgba(245, 158, 11, 0.15);
+}
+
+.cell-win {
+  background: #f0f9ff;
+  border-color: rgba(37,99,235,0.55);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}

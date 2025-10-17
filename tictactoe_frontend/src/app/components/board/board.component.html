@@ -1,0 +1,18 @@
+<div
+  class="board-grid surface"
+  role="grid"
+  aria-label="Tic-Tac-Toe board"
+>
+  <button
+    *ngFor="let cell of board; let i = index"
+    type="button"
+    class="cell"
+    [class.cell-x]="cell === 'X'"
+    [class.cell-o]="cell === 'O'"
+    [class.cell-win]="isWinning(i)"
+    [attr.aria-label]="'Cell ' + (i + 1) + ', ' + (cell ? cell : 'empty')"
+    [disabled]="gameOver || cell !== null"
+    (click)="selectCell(i)">
+    <span class="cell-value">{{ cell }}</span>
+  </button>
+</div>
