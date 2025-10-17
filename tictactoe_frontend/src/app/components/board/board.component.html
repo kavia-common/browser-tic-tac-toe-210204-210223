@@ -10,9 +10,15 @@
     [class.cell-x]="cell === 'X'"
     [class.cell-o]="cell === 'O'"
     [class.cell-win]="isWinning(i)"
-    [attr.aria-label]="'Cell ' + (i + 1) + ', ' + (cell ? cell : 'empty')"
+    [attr.aria-label]="'Cell ' + (i + 1) + ', ' + (cell === 'X' ? 'Knight' : (cell === 'O' ? 'Queen' : 'empty'))"
     [disabled]="gameOver || cell !== null"
     (click)="selectCell(i)">
-    <span class="cell-value">{{ cell }}</span>
+    <span
+      class="cell-value"
+      [attr.role]="cell ? 'img' : null"
+      [attr.aria-label]="cell === 'X' ? 'Knight' : (cell === 'O' ? 'Queen' : null)"
+    >
+      {{ cell === 'X' ? '♞' : (cell === 'O' ? '♛' : '') }}
+    </span>
   </button>
 </div>

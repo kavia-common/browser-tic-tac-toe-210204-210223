@@ -23,8 +23,9 @@
   cursor: pointer;
   display: grid;
   place-items: center;
-  font-size: 36px;
-  font-weight: 700;
+  /* Slightly larger for chess symbols */
+  font-size: 40px;
+  font-weight: 600; /* icons look cleaner with 600 */
   color: var(--color-text);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
   box-shadow: var(--shadow-sm);
@@ -41,6 +42,7 @@
   opacity: 0.9;
 }
 
+/* Color accents per player */
 .cell-x .cell-value {
   color: var(--color-primary);
   text-shadow: 0 1px 0 rgba(37, 99, 235, 0.15);
@@ -51,6 +53,7 @@
   text-shadow: 0 1px 0 rgba(245, 158, 11, 0.15);
 }
 
+/* Winning highlight */
 .cell-win {
   background: #f0f9ff;
   border-color: rgba(37,99,235,0.55);

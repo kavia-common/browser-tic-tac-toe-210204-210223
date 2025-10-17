@@ -39,3 +39,22 @@
 .footer {
   color: #6b7280;
 }
+
+/* Player indicator icon styling */
+.player-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 22px;
+  margin-left: 6px;
+}
+
+.player-indicator.player-x {
+  color: var(--color-primary);
+  text-shadow: 0 1px 0 rgba(37, 99, 235, 0.15);
+}
+.player-indicator.player-o {
+  color: var(--color-secondary);
+  text-shadow: 0 1px 0 rgba(245, 158, 11, 0.15);
+}

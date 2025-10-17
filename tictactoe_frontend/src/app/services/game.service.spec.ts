@@ -2,6 +2,10 @@ import { TestBed } from '@angular/core/testing';
 import { GameService } from './game.service';
 import { AuditService } from './audit.service';
 
+/**
+ * Note: UI now renders chess icons (♞ for 'X', ♛ for 'O').
+ * These tests assert service state ('X'/'O') only and do not rely on DOM glyphs.
+ */
 describe('GameService', () => {
   let service: GameService;
   let audit: AuditService;

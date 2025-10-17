@@ -22,7 +22,14 @@
         *ngIf="!winner() && !draw(); else endState"
         aria-live="polite"
       >
-        Current Player: <strong>{{ currentPlayer() }}</strong>
+        Current Player:
+        <strong class="player-indicator"
+          [class.player-x]="currentPlayer() === 'X'"
+          [class.player-o]="currentPlayer() === 'O'">
+          <span role="img" [attr.aria-label]="currentPlayer() === 'X' ? 'Knight' : 'Queen'">
+            {{ currentPlayer() === 'X' ? '♞' : '♛' }}
+          </span>
+        </strong>
       </div>
 
       <ng-template #endState>
@@ -33,7 +40,14 @@
           aria-live="polite"
         >
           <ng-container *ngIf="winner(); else drawTpl">
-            Winner: <strong>{{ winner() }}</strong>
+            Winner:
+            <strong class="player-indicator"
+              [class.player-x]="winner() === 'X'"
+              [class.player-o]="winner() === 'O'">
+              <span role="img" [attr.aria-label]="winner() === 'X' ? 'Knight' : 'Queen'">
+                {{ winner() === 'X' ? '♞' : '♛' }}
+              </span>
+            </strong>
           </ng-container>
           <ng-template #drawTpl>It's a draw.</ng-template>
         </div>
